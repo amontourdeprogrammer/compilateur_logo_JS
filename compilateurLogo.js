@@ -1,7 +1,7 @@
 
-function CompilateurLogo(code_logo) {
+function CompilateurLogo(codeLogo) {
 	var separateur = /\n+/;
-	lignesLogo = code_logo.split(separateur);
+	var lignesLogo = codeLogo.split(separateur);
 	var instructions = [];
 	for(var i = 0;  i < lignesLogo.length; i++){
 		motsLogo = lignesLogo[i].split(" ");

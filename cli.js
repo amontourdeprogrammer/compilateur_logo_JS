@@ -1,8 +1,8 @@
 var compilateur = require('./compilateurLogo.js');
 var fs = require('fs');
 
-var fileName = process.argv[2];
-var htmlFile = process.argv[3];
+var inputFile = process.argv[2];
+var outputFile = process.argv[3];
 
 var linesBefore = [
 	`<!DOCTYPE>
@@ -39,14 +39,13 @@ var lineAfter =  [
 	</html>`
 	];
 
-fs.readFile(fileName, 'utf8', function(err, code_logo) {
-    var instructions = compilateur.CompilateurLogo(code_logo); 
-
+fs.readFile(inputFile, 'utf8', function(err, codeLogo) {
+  var instructions = compilateur.CompilateurLogo(codeLogo);
 
   var fileContent = linesBefore.join("\n")
   + instructions.join("\n") 
   + lineAfter.join("\n");
-	fs.writeFile(htmlFile, fileContent, function(err){
+	fs.writeFile(outputFile, fileContent, function(err){
 		if (err) throw err;
 		console.log('File writed');
 	});
