@@ -1,4 +1,4 @@
-var compilateur = require('./CompilateurLogo.js');
+var compilateur = require('./compilateurLogo.js');
 var fs = require('fs');
 
 var fileName = process.argv[2];
