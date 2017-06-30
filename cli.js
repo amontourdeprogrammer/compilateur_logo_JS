@@ -18,16 +18,29 @@ var userInput = [];
 				required: true
 			},
 			pas: {
-				pattern: /^[1-200]/,
+				pattern: /^[1-9]/,
 				message: "must be a number between 1 and 200 ",
 				required: true
 			},
 		}
 	};
-
-	prompt.start();
+var i = 0;
+function nextPrompt(){
 	prompt.get(schema, function (err, result){
 		userInput.push(result.mot+' '+ result.pas);
-		console.log(result.mot);
+		console.log(userInput);
+		i= i+1;
+		if (i<4){
+			nextPrompt();
+		} else {
+			return userInput
+		};
+});
+};
 
+prompt.start();
+prompt.get(schema, function (err, result){
+	userInput.push(result.mot+' '+ result.pas);
+	console.log(userInput);
+	nextPrompt();
 	});
