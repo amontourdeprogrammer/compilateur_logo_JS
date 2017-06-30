@@ -3,6 +3,7 @@ module.exports = function(instructions) {
 <!DOCTYPE html>
 	<html>
 	<head>
+	<title> notre super dessin logo </title>
 	<script src="processing.js"></script>
 	<script type="text/processing" data-processing-target="processing-canvas">
 	float x, y, dir;
